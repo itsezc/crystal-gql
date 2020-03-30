@@ -26,15 +26,13 @@ class GraphQLClient
 		return response
 	end
 
-	def query(query : String)
+	def query(query : String, variables = {} of Symbol => String)
 		requestQuery = JSON.build do | json |
 			json.object do
 				json.field "query", query
+				json.field "variables", variables
 			end
 		end
-
-		response = request(requestQuery)
-		print(response)
-		return response
+		request(requestQuery)
 	end
 end

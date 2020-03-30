@@ -1,7 +1,8 @@
 require "./crystal-gql/client"
 
 # test = GraphQLClient.new "https://countries.trevorblades.com"
-# test.query("
+
+# query1 = test.query("
 # 	{
 # 		continents {
 # 			code
@@ -9,3 +10,16 @@ require "./crystal-gql/client"
 # 		}
 # 	}
 # ")
+
+# query2 = test.query(
+# 	"
+# 		query findContinent($code: ID!) {
+# 			continent(code: $code) {
+# 				code
+# 				name
+# 			}
+# 	    }
+# 	", {
+# 		"code" => "AF"
+# 	}
+# )
