@@ -1,0 +1,6 @@
+version: 1.0
+shards:
+  halite:
+    github: icyleaf/halite
+    version: 0.10.4
+
