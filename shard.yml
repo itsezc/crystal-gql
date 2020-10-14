@@ -1,2 +1,9 @@
 name: crystal-gql
-version: 0.0.1
+version: 0.1.1
+
+authors:
+      - Chiru B <chirub@foretag.co>
+
+crystal: 0.35.1
+
+license: MIT

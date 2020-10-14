@@ -1,0 +1,1 @@
+require "./crystal-gql/client"
