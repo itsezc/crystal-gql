@@ -1,2 +1,2 @@
 require "spec"
-require "../source/crystal-gql/client/client"
+require "../source/client/client"

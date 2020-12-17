@@ -1,1 +1,1 @@
-require "./crystal-gql/client"
+require "./client"
