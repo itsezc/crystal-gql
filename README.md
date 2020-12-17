@@ -8,7 +8,8 @@ A GraphQL client shard for the Crystal language.
 
 ## Usage
 
-Initializing
+**Initializing**
+
 ```ruby
 require "crystal-gql"
 
@@ -16,43 +17,11 @@ require "crystal-gql"
 api = GraphQLClient.new "https://countries.trevorblades.com"
 ```
 
-Querying with useQuery
+**Querying**
 
-```ruby
-# useQuery
-query = api.useQuery(GQL {
-	"continents" => [
-		"code",
-		"name",
-		{
-			"countries" => [
-				"name",
-				"capital"
-			]
-		}
-	]
-})
+![Query examples](https://i.imgur.com/GszWisp.png)
 
-# Print data
-print query["data"]
 ```
-
-Querying with (traditional) query
-```ruby
-# Traditional Query
-query = api.query("
-	{
-		continents {
-			code
-			name
-			countries {
-				name
-				capital
-			}
-		}
-	}
-")
-
 # Print data
 print query["data"]
 ```
