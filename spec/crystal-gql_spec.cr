@@ -20,14 +20,19 @@ describe GraphQLClient do
 		end
 
 		it "returns newQuery" do
-			query = api.useQuery({
+			query = api.useQuery(GQL {
 				"continents" => [
 					"code",
 					"name",
 					{
 						"countries" => [
 							"name",
-							"capital"
+							"capital",
+							{
+								"languages" => [
+									"name"
+								]
+							}
 						]
 					}
 				]
