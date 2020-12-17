@@ -1,6 +1,9 @@
 require "json"
 require "http/client"
 
+class GQL(K, V) < Hash(String, V)
+end
+
 class GraphQLClient 
 	def initialize(endpoint : String)
 		protected @endpoint = endpoint
@@ -36,7 +39,7 @@ class GraphQLClient
 		request(requestQuery)
 	end
 
-	def useQuery(hash : Hash(String, Array(Hash(String, Array(String)) | String)), variables = {} of Symbol => String)
+	def useQuery(hash : GQL, variables = {} of Symbol => String)
 		query = %{
 			{
 				#{hash.first_key} {

@@ -20,7 +20,7 @@ Querying with useQuery
 
 ```ruby
 # useQuery
-query = api.useQuery({
+query = api.useQuery(GQL {
 	"continents" => [
 		"code",
 		"name",
