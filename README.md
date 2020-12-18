@@ -1,7 +1,7 @@
 # GraphQL Client for Crystal
 A GraphQL client shard for the Crystal language.
 
-- Version: 0.1.2
+- Version: 0.1.3
 - Crystal Version: 0.35.1
 
 ## Usage
