@@ -12,21 +12,33 @@ class GraphQLClient
 
 	def request(data)
 		@loading = true
+
 		headers = HTTP::Headers {
 			"accept" => "application/json",
 			"content-type" => "application/json"
 		}
+
 		response = JSON.parse(
 			HTTP::Client
 				.post(
 					@endpoint, 
 					headers: headers,
-					body:  data
+					body: data
 				)
 				.body
 			)
+
 		@loading = false
-		return response
+
+		data = response["data"]
+		error = response.dig?("error")
+		loading = @loading
+
+		{
+			data,
+			error,
+			loading
+		}
 	end
 
 	def query(query : String, variables = {} of Symbol => String)

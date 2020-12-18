@@ -7,7 +7,7 @@ describe GraphQLClient do
 
 	describe "Queries" do
 		it "return data from GQL API" do
-			query = api.query("
+			data, error, loading = api.query("
 				{
 					continents {
 						code
@@ -16,11 +16,11 @@ describe GraphQLClient do
 				}
 			")
 
-			query["data"].size.should be > 0
+			data.size.should be > 0
 		end
 
 		it "returns newQuery" do
-			query = api.useQuery(GQL {
+			data, error, loading = api.useQuery(GQL {
 				"continents" => [
 					"code",
 					"name",
@@ -38,7 +38,7 @@ describe GraphQLClient do
 				]
 			})
 
-			query["data"].size.should be > 0
+			data.size.should be > 0
 		end
 	end
 end

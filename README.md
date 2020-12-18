@@ -1,10 +1,8 @@
 # GraphQL Client for Crystal
 A GraphQL client shard for the Crystal language.
 
-
 - Version: 0.1.2
 - Crystal Version: 0.35.1
-
 
 ## Usage
 
@@ -19,9 +17,41 @@ api = GraphQLClient.new "https://countries.trevorblades.com"
 
 **Querying**
 
-![Query examples](https://i.imgur.com/GszWisp.png)
+```ruby
+# useQuer
+data, error, loading = api.useQuery(GQL {
+	"continents" => [
+		"code",
+		"name",
+		{
+			"countries" => [
+				"name",
+				"capital",
+				{
+					"languages" => [
+						"name"
+					]
+				}
+			]
+		}
+	]
+})
 
-```
+# or traditional queries
+data, error, loading = api.query("{
+    continents {
+        code
+        name
+    	countries {
+      		name
+      		capital
+      		languages {
+        		name
+      		}
+    	}
+    }
+}")
+
 # Print data
 print query["data"]
 ```
