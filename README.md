@@ -18,7 +18,7 @@ api = GraphQLClient.new "https://countries.trevorblades.com"
 **Querying**
 
 ```ruby
-# useQuer
+# useQuery
 data, error, loading = api.useQuery(GQL {
 	"continents" => [
 		"code",
@@ -46,12 +46,12 @@ data, error, loading = api.query("{
       		name
       		capital
       		languages {
-        		name
+        			name
       		}
     	}
     }
 }")
 
 # Print data
-print query["data"]
+print data
 ```
