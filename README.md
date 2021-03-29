@@ -19,6 +19,12 @@ dependencies:
 
 ```
 
+Then run:
+
+```bash
+shards install
+```
+
 **Initializing**
 
 ```ruby
@@ -67,4 +73,31 @@ data, error, loading = api.query("{
 
 # Print data
 print data
+```
+
+**Querying**
+
+With authentication:
+
+
+```ruby
+api.add_header("Authorization", "Bearer: TOKEN")
+# useQuery
+data, error, loading = api.useQuery(GQL {
+	"continents" => [
+		"code",
+		"name",
+		{
+			"countries" => [
+				"name",
+				"capital",
+				{
+					"languages" => [
+						"name"
+					]
+				}
+			]
+		}
+	]
+})
 ```
