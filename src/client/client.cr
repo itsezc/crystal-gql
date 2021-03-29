@@ -8,6 +8,11 @@ class GraphQLClient
 	def initialize(endpoint : String)
 		protected @endpoint = endpoint
 		@loading = false
+		@additional_headers = [] of Array(String)
+	end
+
+	def add_header(key : String, value : String)
+		@additional_headers << [key, value]
 	end
 
 	def request(data)
@@ -16,6 +21,9 @@ class GraphQLClient
 		headers = HTTP::Headers {
 			"accept" => "application/json",
 			"content-type" => "application/json"
+		}
+		@additional_headers.each { |pair| 
+			headers.add(pair.first, pair.last)
 		}
 
 		response = JSON.parse(
